@@ -11,9 +11,12 @@
 */
 body {
 	background-color: #fff;
+	background-image: url(images/abstract-architecture.jpg);
+	background-size: cover;
 }
 main {
 	background: none !important;
+	min-height: 200px !important;
 }
 
 main > section {
@@ -29,18 +32,26 @@ main > section > h1{
 	-moz-box-shadow:    0px 0px 4px 2px rgba(50, 50, 50, 0.61);
 	box-shadow:         0px 0px 4px 2px rgba(50, 50, 50, 0.61);
 }
+
+.home #binder {
+	background-color: none;
+	background-image: none;
+}
 	
 #binder.fluid .row:not(.rebound) {
 	width: auto !important;
 }
 
-#tf-primary-header .tf-site-banner {
-	background: #981e33;
+#primary-header {
+	background: rgba(255, 255, 255, 0.8);
+}
+
+#primary-header .site-banner {
 	height: 110px;
 	line-height: 110px;
 }
 
-#tf-primary-header .tf-site-banner a {
+#primary-header .site-banner a {
 	display: inline-block;
 	padding: 0 2rem;
 	font-size: 2rem;
@@ -48,50 +59,49 @@ main > section > h1{
 	
 }
 
-#tf-primary-header .tf-site-banner::before {
+#primary-header .site-banner::before {
 	content: " ";
 	width: 100%;
-	background: #981e33;
+	background: rgba(255, 255, 255, 0.8);
 	left: -100%;
 	position: absolute;
 	height: 110px;
 }
 
-#tf-primary-header .tf-site-banner::after {
+#primary-header .site-banner::after {
 	content: " ";
 	width: 100%;
-	background: #981e33;
+	background: rgba(255, 255, 255, 0.8);
 	right: -100%;
 	position: absolute;
 	height: 110px;
 }
 
-#tf-primary-header .tf-header-nav {
-	background: #7b1626;
+#primary-header .header-nav {
 	height: 30px;
-	-webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+	/*-webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
 	-moz-box-shadow:    0px 2px 5px 0px rgba(50, 50, 50, 0.75);
-	box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.75);*/
 }
-#tf-primary-header .tf-header-nav::before {
+#primary-header .header-nav::before {
 	content: " ";
 	width: 100%;
-	background: #7b1626;
+	background: rgba(255, 255, 255, 0.8);
 	right: -100%;
 	position: absolute;
 	height: 30px;
 }
-#tf-primary-header .tf-header-nav::after {
+#primary-header .header-nav::after {
 	content: " ";
 	width: 100%;
-	background: #7b1626;
+	background: rgba(255, 255, 255, 0.8);
 	left: -100%;
 	position: absolute;
 	height: 30px;
 	
 }
 
-#tf-site-toolbar {
+#site-toolbar {
 	position: absolute;
 	top: 140px;
 	right: 0px;
@@ -100,13 +110,13 @@ main > section > h1{
 	background: rgba(0, 0, 0, 0.4);
 }
 
-#tf-endowment-logo {
+#endowment-logo {
 	position: fixed;
 	width: 200px;
 	bottom: 0; 
 }
 
-#tf-endowment-logo img {
+#endowment-logo img {
 	display: block;
 }
 /***** PAGEBUILDER OVERRIDES ******/
