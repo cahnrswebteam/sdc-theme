@@ -1,96 +1,69 @@
 <?php
-class sdc_site_settings{
+class cahnrs_events_spine_child {
 	
-	public function init(){ 
-		$this->url = \get_stylesheet_directory_uri();
-		add_action( 'wp_enqueue_scripts', array( $this , 'init_theme_scripts' ) );
-		//add_action( 'widgets_init', array( $this , 'add_sidebars' ) );
-		add_action('init' , array( $this , 'add_image_sizes' ) );
-		add_filter( 'image_size_names_choose', array( $this , 'add_custom_image_sizes' ) );
-		add_action( 'admin_init', array( $this ,'add_taxes') );
+	public function __construct() {
+		/**************************** 
+		** DEFINE DIRECTORY, URI, AND OTHER THEME CONSTANTS - DB **
+		***************************/
+		$this->define_constants();
+		/**************************** 
+		** ADD CUSTOM IMAGE SIZES **
+		*****************************/
+		add_action( 'init', array( $this, 'add_image_sizes' ) );
+		add_filter( 'image_size_names_choose', array( $this, 'add_custom_image_sizes' ) );
+		add_post_type_support('page', 'excerpt');
+		//add_action('wp_footer', array( $this , 'add_footer') );
+		add_action( 'wp_enqueue_scripts', array( $this, 'cahnrs_scripts' ), 20 );
+		add_action( 'init', array( $this, 'cahnrs_menu' ) );
 	}
+
 	
-	public function init_theme_scripts(){
-		
-		wp_enqueue_script('jquery');
-		
-		wp_enqueue_script( 'sdc_js',  get_stylesheet_directory_uri() . '/js/sdc.js', array(), '1.0.0', true );
-		
-		wp_enqueue_script( 'cycle_js',  get_stylesheet_directory_uri() . '/js/cycle.js', array(), '1.0.0', true );
-		                 
-		wp_register_style( 'sdc_font', 'http://fonts.googleapis.com/css?family=Raleway', array(), '1.0.0' );
-		wp_enqueue_style( 'sdc_font' );
+	private function define_constants() {
+		define( 'CAHNRS2014DIR', get_stylesheet_directory() ); // CONSTANT FOR THEME DIRECTORY - DB
+		define( 'CAHNRS2014URI', get_stylesheet_directory_uri() ); // CONSTANT FOR THEM URI - DB
 	}
-	
-	public function add_taxes() {  
-		// Add tag metabox to page
-		register_taxonomy_for_object_type('post_tag', 'page'); 
-		// Add category metabox to page
-		register_taxonomy_for_object_type('category', 'page');  
-	}
-	
-	public function add_image_sizes(){
+
+	public function add_image_sizes() {
 		 add_image_size( '4x3-medium', 400, 300, true );
 		 add_image_size( '3x4-medium', 300, 400, true );
 		 add_image_size( '16x9-medium', 400, 225, true );
 		 add_image_size( '16x9-large', 800, 450, true );
-	 }
-	 
-	 public function add_custom_image_sizes( $sizes ){
-		 return array_merge( $sizes, array(
-        	'4x3-medium' => '4x3-medium',
+		 add_image_size( 'banner-wide', 1600, 350, true );
+	}
+
+	public function add_custom_image_sizes( $sizes ) {
+		return array_merge( $sizes, array(
+			'4x3-medium' => '4x3-medium',
 			'3x4-medium' => '3x4-medium',
 			'16x9-medium' => '16x9-medium',
 			'16x9-large' => '16x9-large',
-    		) );
-	 }
-	 
-	 /*public function add_sidebars(){
-		$sideArray = array();
-		$sideArray[] = array(
-			'name'	=> __( 'Footer Menu - Right' ),
-			'id' => 'footer-menu-right',
-			'description' => 'Right Footer Menu Area',
-        	'class' => '',
-			'before_widget' => '<li class="widget %2$s">',
-			'after_widget'  => '</li>',
-			'before_title'  => '',
-			'after_title'   => '' 
-		);
-		$sideArray[] = array(
-			'name'	=> __( 'Footer Menu - Middle' ),
-			'id' => 'footer-menu-middle',
-			'description' => 'Middle Footer Menu Area',
-        	'class' => '',
-			'before_widget' => '<li class="widget %2$s">',
-			'after_widget'  => '</li>',
-			'before_title'  => '',
-			'after_title'   => '' 
-		);
-		$sideArray[] = array(
-			'name'	=> __( 'Footer Menu - Left' ),
-			'id' => 'footer-menu-left',
-			'description' => 'Left Footer Menu Area',
-        	'class' => '',
-			'before_widget' => '<li class="widget %2$s">',
-			'after_widget'  => '</li>',
-			'before_title'  => '',
-			'after_title'   => '' 
-		);
-		$sideArray[] = array(
-			'name'	=> __( 'Footer Menu - Footer Bottom' ),
-			'id' => 'footer-menu-bottom',
-			'description' => 'Bottom Footer Menu Area',
-        	'class' => '',
-			'before_widget' => '<li class="widget %2$s">',
-			'after_widget'  => '</li>',
-			'before_title'  => '',
-			'after_title'   => '' 
-		);
-		foreach( $sideArray as $sidebar ){
-			register_sidebar( $sidebar );
-		}
-	}*/
+			'banner-wide' => 'banner-wide',
+		) );
+	}
+	
+	public function add_footer(){
+		include 'footer-footerselector.php';
+	}
+	
+	public function cahnrs_scripts() {
+		wp_enqueue_script( 'theme-script', CAHNRS2014URI . '/js/script.js' , array(), '1.0.0', false );
+		wp_enqueue_style( 'sdc-theme', CAHNRS2014URI . '/css/sdc.css' , false, '1.0.0' );
+	}
+	
+	public function cahnrs_menu() {
+		register_nav_menu( 'cahnrs_horizontal', 'Horizontal' );
+		register_nav_menu( 'cahnrs_deeplinks', 'Site Deeplinks' );
+	}
+	
+	public function sdc_content_filter( $content ){
+		if( ( is_singular('post') || is_singular('page') ) && !is_front_page() ){
+			ob_start();
+			include CAHNRS2014DIR.'/sdc/single-content.php';
+			return ob_get_clean();
+		} 
+		return $content;
+	}
 }
-$init_sdc = new sdc_site_settings();
-$init_sdc->init();?>
+
+$wsu_cahnrs_events_spine = new cahnrs_events_spine_child();
+?>

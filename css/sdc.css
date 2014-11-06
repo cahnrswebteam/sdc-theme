@@ -1,0 +1,164 @@
+html {
+	/*background-image:url(../images/sdc-arch-slide.jpg);
+	background-size:   100% auto; 
+    background-repeat: no-repeat;
+    background-position: center center; */
+}
+main {
+	min-height: 500px !important;
+}
+h1 {
+	display: none;
+}
+
+#global-header {
+	position: relative;
+}
+#global-header.site-front-page {
+	margin-bottom: 0;
+}
+
+#global-header:before,
+#global-header:after {
+	position: absolute;
+	content: ' ';
+	top: 0;
+	width: 300%;
+	height: 100%;
+}
+#global-header,
+#global-header:before,
+#global-header:after {
+	background-color: rgba(238,238,238,0.9);
+}
+
+#global-header.site-front-page,
+#global-header.site-front-page:before,
+#global-header.site-front-page:after {
+	background-color: rgba(238,238,238,0.9);
+}
+
+#global-header:before { right: 100%; }
+#global-header:after { left: 100%;}
+
+.spineless #global-header .site-banner {
+	display: table;
+	height: 85px;
+}
+.spineless #global-header .site-banner {
+	margin-left: 200px;
+}
+
+#global-header .site-banner > a {
+	display: table-cell;
+	vertical-align: middle;
+	height: 85px;
+	line-height: 1.8em;
+	color: #111;
+	font-family: 'Raleway', sans-serif;
+}
+.site-front-page.site-front-page .site-banner > a {
+	height: 158px;
+}
+#global-header .site-banner > a > span {
+	display: block;
+	margin-left: 2rem;
+}
+#global-header .site-banner > a > span.cahnrs-site-title {
+	font-size: 2.4rem;
+}
+#global-header .site-banner > a > span.cahnrs-site-description {
+	display: none;
+}
+
+#global-header > nav:before,
+#global-header > nav:after {
+	position: absolute;
+	content: ' ';
+	bottom: 0;
+	width: 300%;
+	height: 100%;
+}
+#global-header > nav,
+#global-header > nav:before,
+#global-header > nav:after {
+	z-index: 100;
+}
+#global-header.site-front-page > nav,
+#global-header.site-front-page > nav:before,
+#global-header.site-front-page > nav:after {
+	height: 40px;
+}
+
+
+#global-header > nav:before { right: 100%; }
+#global-header > nav:after { left: 100%;}
+
+#global-header > nav {
+	position: relative;
+	margin-left: 198px;
+}
+#global-header > nav > ul {
+	margin: 0 0 0 0.5rem;
+	padding: 0;
+	list-style-type: none;
+	display: table;
+}
+#global-header > nav > ul > li {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+#global-header > nav > ul > li > a {
+	display: block;
+	height: 40px;
+	padding: 0 1.5rem;
+	line-height: 40px;
+	font-size: 1em;
+	color: #111;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+#global-header > nav > ul > li.activedrop > a,
+#global-header > nav > ul > li > a:hover {
+	background: #fff;
+	color: #444; 
+}
+.is_dropdown li {
+	position: relative;
+}
+
+.is_dropdown ul {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	width: 225px;
+	background: #fff;
+	display: none; 
+}
+.is_dropdown li li {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+.is_dropdown li li a {
+	display: block;
+	margin: 0;
+	padding: 4px 1rem;
+	color: #111;
+}
+.is_dropdown li li a:hover {
+	background-color: #eee;
+	}
+
+#pagebanner {
+	background-image:url(../images/sdc-arch-slide.jpg);
+	background-size:   100% auto; 
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+#pagebanner img {
+	width: 100%;
+	height: auto;
+}

@@ -1,507 +1,192 @@
-/*
- Theme Name:   SDC Theme - Spine
- Theme URI:    sdc.wsu.edu
- Description:  Custom Theme for School of Design & Construction
- Author:       CAHNRS Communications, Danial Bleile
- Author URI:   http://cahnrs.wsu.edu/communications
- Template:     WSUWP-spine-parent-theme
- Version:      1.0.0
- Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
- Text Domain:  sdc
-*/
-html {
-	
-}
-
-body {
-	font-size: 13px;
-	background-color: #333;
-	background-image: none;
-}
-main {
-	background: none !important;
-	min-height: 200px !important;
-}
-
-main > section {
-	background-color: #111;
-	margin: 0 220px 0 0 !important;
-	width: auto !important;
-	padding: 1.5rem 0 4rem;
-	}
-
-main > section::after,
-main > section::before {
-	content: " " !important;
-	width: 100% !important;
-	height: auto !important;
-	background: #111 !important;
-	position: absolute !important;
-	top: 0 !important;
-	bottom: 0 !important;
-	visibility: visible !important;
-}
-
-main > section::before { left: -100% !important; }
-main > section::after  { right: -100% !important; }
-	
-	
-main > section > h1{
-	margin-left: 1rem;
-	}
-main > section > article{
-	margin: 0 0 4rem 2rem;
-	}
-	
-#spine #glue {
-	/*-webkit-box-shadow: 0px 0px 4px 2px rgba(50, 50, 50, 0.61);
-	-moz-box-shadow:    0px 0px 4px 2px rgba(50, 50, 50, 0.61);
-	box-shadow:         0px 0px 4px 2px rgba(50, 50, 50, 0.61);*/
-}
-
-.home #binder {
-	background-color: none;
-	background-image: none;
-}
-	
-#binder.fluid .row:not(.rebound) {
-	width: auto !important;
-}
-
-#full-page-wrap {
-	background-image: url(images/sdc-arch-slide.jpg);
-	background-size: cover;
-	background-position: center center;
-	/*background: #000;*/
-}
-
-#primary-header {
-	background: rgba(238, 238, 238, 0.9);
+/**
+ * Theme Name:  WSU Spine - School of Design and Construction
+ * Theme URI:   http://cahnrs.wsu.edu/communications/
+ * Author:      CAHNRS Communications, Danial Bleile
+ * Author URI:  http://cahnrs.wsu.edu/communications/
+ * Description: 
+ * Version:     1
+ * License:     Copyright Washington State University
+ * License      URI: http://copyright.wsu.edu
+ * Template:    WSUWP-spine-parent-theme
+ */
+ 
+body { 
+	font-size: 14px;
+	background-image: none !important;
 	position: relative;
-	z-index: 50;
+}
+body h1 {
+	color: #003c69;
+	padding: 0 2rem;
+}
+body h2 {
+	font-size: 1.2rem;
 }
 
 
-#primary-header .site-banner a {
+.pagebuilder-item {
+	padding: 0.5rem 2rem 1rem; 
+}
+.pagebuilder-item:not(.unbound)
+{
+	margin-right: 0 !important;
+}
+#global-footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+#global-footer .divider-bar {
+	height: 40px;
+	background: #2f475a;
+}
+#global-footer .footer-content {
+	text-align: center;
+}
+#global-footer .footer-content a {
+	font-size: 0.8em;
 	display: inline-block;
-	padding: 0  1rem 0 2rem;
-	font-size: 2rem;
-	font-weight:700;
-	color: #111;
-	font-family: 'Raleway', sans-serif;
+	color: #555;
+	padding: 10px 0;
 }
-#primary-header .site-banner a span {
-	color: #981e32;
+.pagebuilder-item.widget_subtitle {
+margin-bottom: 0 !important;
+padding-bottom: 0 !important;
 }
-
-#primary-header .site-banner::before {
-	content: " ";
+/*
+#global-header {
+	left: 0px;
+	margin-left: 200px;
 	width: 100%;
-	background: rgba(238, 238, 238, 0.9);
-	left: -100%;
 	position: absolute;
-	top: 0;
 }
 
-#primary-header .site-banner::after {
-	content: " ";
+#global-header:before,
+#global-header:after {
+	position: absolute;
+	content: ' ';
+	top: 0;
 	width: 100%;
-	background: rgba(238, 238, 238, 0.9);
-	right: -100%;
-	position: absolute;
-	top: 0;
 }
 
-#primary-header .site-banner,
-#primary-header .site-banner::after,
-#primary-header .site-banner::before {
-	height: 80px;
-	line-height: 80px;
+#global-header,
+#global-header:before,
+#global-header:after {
+	background-color: #2f475a;
+	height: 100px;
 }
-/*#primary-header .site-banner.site-sub-section,
-#primary-header .site-banner.site-sub-section::after,
-#primary-header .site-banner.site-sub-section::before {
-	height: 110px;
-	line-height: 110px;
+#global-header:before { right: 100%; }
+#global-header:after { left: 100%;}
+
+#global-header .banner {
+	margin-left: 5%;
+	height: 100px;
+	line-height: 100px;
+}
+
+#global-header .banner a {
+	margin: 0 2rem;
+	display: inline-block;
+	font-size: 1.75rem;
+}
+
+main {
+	padding-top: 98px;
+}
+
+#row-100 {
+	background: #fff;
+	position: relative;
+}
+
+.pagebuilder-row {
+	padding: 1.5rem 0;
+}
+.pagebuilder-row {
+	padding: 1.5rem 0;
+	max-width: 1100px;
+	margin: 0 auto;
+}
+.pagebuilder-row.full{;
+	max-width: 100%;
+}
+
+.pagebuilder-column {
+	background-repeat: repeat-y;
+	position: left center;
+}
+.pagebuilder-column {
+	background-repeat: repeat-y;
+	position: left center;
+}
+
+
+.breakout {
+	width: 104%;
+	position: relative;
+	left: -2%;
+}
+.pagebuilder-item {
+	margin: 0 1rem ;
+}
+
+.tight {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.cahnrs-slideshow.slideshow-basic .cahnrs-slide > img,
+.cahnrs-slideshow.slideshow-basic .cahnrs-slide > a > img {
+	width: 100% !important;
+	border-right: none !important;
+	height: auto;
+	display: block;
+}
+
+.cahnrs-slideshow.slideshow-basic .caption {
+	position: absolute !important;
+	padding: 2rem 0 0 !important;
+	top: 0 !important;
+	right: 0 !important;
+	width: 45% !important;
+}
+
+@media only screen and (max-width: 1120px) {
+	.pagebuilder-row {
+		max-width: 95%;
+	}
 }*/
 
 
-#primary-header .header-nav {
-	height: 30px;
-	position: relative;
-	/*-webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
-	-moz-box-shadow:    0px 2px 5px 0px rgba(50, 50, 50, 0.75);
-	box-shadow:         0px 2px 5px 0px rgba(50, 50, 50, 0.75);*/
-}
-#primary-header .header-nav::before {
-	content: " ";
-	width: 100%;
-	background: rgba(238, 238, 238, 0.9);
-	right: -100%;
+.pagebuilder-column:before {
+	content: ' ';
 	position: absolute;
-	height: 30px;
-}
-#primary-header .header-nav::after {
-	content: " ";
-	width: 100%;
-	background: rgba(238, 238, 238, 0.9);
-	left: -100%;
-	position: absolute;
-	height: 30px;
-	top: 0;
-}
-
-#site-toolbar {
-	position: absolute;
-	top: 140px;
-	right: 0px;
-	bottom: 0px;
-	width: 200px;
-	background: rgba(0, 0, 0, 0.4);
-}
-
-#endowment-logo {
-	position: fixed;
-	width: 200px;
-	bottom: 0; 
-}
-
-#endowment-logo img {
-	display: block;
-}
-/***** PAGEBUILDER OVERRIDES ******/
-main .pagebuilder-column aside,
-main .pagebuilder-column article {
-	margin: 0 1rem 2rem 1rem;
-}
-
-/** SDC Custom **/
-
-main h2 {
-	margin: 0;
-	padding: 0 0 6px;
-	font-size: 1.2rem;
-	color: #ddd;
-}
-
-#tertiary-nav {
-	margin-top: 290px;
-	background: rgba(238, 238, 238, 0.9);
-}
-#tertiary-nav ul {
-	margin: 0 0 0 2rem;
-	padding: 0;
-	list-style-type: none;
-}
-#tertiary-nav li {
-	display: inline-block;
-	vertical-align: top;
-	margin: 0;
-	padding: 0;
-}
-#tertiary-nav li a {
-	display: table-cell;
-	padding: 0 15px;
-	color: #111;
-	font-size: 0.9rem;
-	height: 40px;
-	vertical-align: middle;
-}
-#tertiary-nav li.active a {
-	color: #981e32;
-}
-#tertiary-nav::after,
-#tertiary-nav::before {
-	content: " " !important;
-	width: 100% !important;
-	height: 40px !important;
-	background: rgba(238, 238, 238, 0.9) !important;
-	position: absolute !important;
-	top: 370px;
-}
-
-#tertiary-nav::before { left: -100% !important; }
-#tertiary-nav::after  { right: -100% !important; }
-
-#primary-section {
-	color: #aaa;
-	font-size: 0.9rem;
-}
-
-#primary-image {
-	width: 100%;
-	height: 500px;
-	position: fixed;
-	top: 0;
 	left: 0;
-	overflow: hidden;
-}
-#primary-image img {
-	display: block;
-	width: 100%;
-	height: auto;
-	position: relative;
-	top: -30%;
-	left: 0;
-}
-
-#primary-header .site-banner.site-sub-section a {
-	color: #981e32;
-}
-#primary-header .site-banner.site-sub-section h1 {
-	display: inline-block;
-	font-size: 1.2rem;
-	font-weight: normal;
-	text-transform:lowercase;
-}
-
-#sdc-slide-wrap,
-#full-page-wrap,
-#full-page-wrap .sdc-slide {
-	position: absolute;
+	top: 0;
 	height: 100%;
-	width: 100%;
-	bottom: 0;
-	left: 0;
-	overflow: hidden;
+	width: 1px;
+	border-right: 1px solid #ccc;
+	background-color: #fff;
 }
-#full-page-wrap .sdc-caption {
-	position: absolute;
-	width: 100%;
-	/*bottom: 45px;*/
-	bottom: 0;
-	left: 0;
-	background: rgba(0, 0, 0, 0.6);
-	color: #fff;
-	padding: 20px 0 30px;
+.pagebuilder-column:first-child:before {
+	border-right: none;
+	background-color: none;
 }
-
-#full-page-wrap .sdc-caption-title {
-	font-size: 1.3rem;
-	font-family: 'Raleway', sans-serif;
+@media screen and (max-width: 989px), only screen and (max-device-width: 1024px) and (orientation: portrait) {
+  .spineless #global-header .site-banner, #global-header > nav {
+	  margin-left: 0;
+  }
 }
-
-#full-page-wrap .sdc-caption-summary {
-	font-size: 0.8rem;
-	line-height: 1rem;
-	max-width: 600px;
-	color: #999;
+@media only screen and (min-device-width: 990px) and (min-width: 1188px) {
+  #binder:not(.fluid).max-1188 main {
+  	width: 1188px;
+  }
 }
-
-#full-page-wrap .sdc-slide {
-	display: block;
-	cursor: pointer;
-}
-
-#full-page-wrap .sdc-slide img{
-	width: 100%;
-	height: auto;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-}
-
-#full-page-wrap .slide-nav {
-	background-image: url(images/slideshow-nav.png);
-	background-repeat: no-repeat;
-	width: 30px;
-	height: 67px;
-	position: absolute;
-	top: 45%;
-	z-index: 40;
-	cursor: pointer;
-	opacity: 0.4;
-}
-#full-page-wrap #slide-next.slide-nav {
-	background-position: top right;
-	right: 30px;
-}
-#full-page-wrap #slide-prev.slide-nav {
-	background-position: top left;
-	left: 30px;
+@media only screen  and (min-width: 1386px) {
+  #binder:not(.fluid).max-1386 main{ 
+  	width: 1356px;
+  }
 }
 
 
-#jacket {
-min-height: 400px;
-}
-#primary-header nav  {
-	margin: 0;
-	padding: 0;
-	font-size: 0.9rem;
-}
-#primary-header nav a {
-	color: #111;
-}
-#primary-header nav > ul {
-	margin: 0 0 0 2rem;
-	padding: 0;
-	font-size: 0;
-}
-#primary-header nav > ul ul {
-	margin: 0;
-	padding: 0;
-}
-
-#primary-header nav > ul > li {
-	display: inline-block;
-	position: relative;
-	padding: 0;
-	font-size: 0.9rem;
-}
-#primary-header nav > ul > li > a {
-	display: block;
-	padding: 0 15px;
-	height: 30px;
-	line-height: 30px;
-}
-
-#primary-header nav > ul > li.active > a {
-	background: #fff;
-}
-
-
-#primary-header nav > ul > li > .sub-menu {
-	position: absolute;
-	width: 200px;
-	background:#fff;
-	top: 100%;
-	left: 0;
-	display: none;
-}
-#primary-header nav > ul > li > .sub-menu ul {
-	display: none;
-}
-
-#primary-header nav > ul > li > .sub-menu li {
-	padding: 0;
-}
-
-#primary-header nav > ul > li > .sub-menu a {
-	display: block;
-	padding: 4px 15px;
-	border-top: 1px solid #efefef;
-}
-
-#page-slide-nav {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	background: rgba(238, 238, 238, 0.7);
-	border-bottom: 1px solid #999;
-	z-index: 50;
-}
-
-#page-slide-nav > ul {
-	list-style-type: none;
-	padding: 0;
-	border-right: 1px solid #ddd;
-	border-left: 1px solid #bbb;
-}
-
-#page-slide-nav > ul > li {
-	display: inline-block;
-	vertical-align: top;
-	margin: 0;
-	padding: 0;
-	width: 22%;
-}
-
-
-
-#page-slide-nav > ul > li:hover,
-#page-slide-nav > ul > li.active,
-#page-slide-nav > ul > li.activeSlide {
-	background: rgba(255, 255, 255, 0.5);
-	color: #555;
-}
-#page-slide-nav > ul > li.sdc-more {
-	width: 12%;
-	text-align: center;
-	float: right;
-}
-
-#page-slide-nav > ul > li > a {
-	display: block;
-	color: #111;
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #bbb;
-	min-height: 45px;
-}
-#thumb-slide-nav {
-	position: absolute;
-	bottom: 30px;
-	right: 0;
-	width: 100%;
-}
-#thumb-slide-nav ul {
-	text-align: right;
-	padding: 0;
-}
-#thumb-slide-nav ul li {
-	display: inline-block;
-	margin: 0;
-	padding: 0;
-}
-
-#thumb-slide-nav ul li a {
-	display: inline-block;
-	width: 60px;
-	height: 40px;
-	overflow: hidden;
-	position: relative;
-	z-index: 60;
-	margin-left: 6px;
-	opacity: 0.4;
-	border: 1px solid #999;
-}
-#thumb-slide-nav ul li a:hover {
-	opacity: 0.7;
-}
-#thumb-slide-nav ul li.activeSlide a{
-	opacity: 0.7;
-}
-#thumb-slide-nav ul li a img {
-	width: 100%;
-}
-
-#page-slide-nav > ul > li.sdc-more > a {
-	
-}
-
-#page-slide-nav > ul > li > a > span {
-	display: block;
-	margin: 0 20px;
-	/*padding: 8px 0;*/
-	font-size: 0.75rem;
-	line-height: 0.9rem;
-	line-height: 45px;
-}
-
-#page-slide-nav > ul > li > a > span > span {
-	display: inline-block;
-	/*line-height: 0.9rem;*/
-	line-height: 0.9rem;
-	vertical-align: middle;
-}
-
-#page-slide-nav > ul > li.sdc-more > a > span {
-	display: inline;
-	padding: 0;
-	margin: 0;
-	text-transform: uppercase;
-}
-.sdc-content-wrap {
-	width: 990px;
-	margin: 0 auto;
-}
-
-@media only screen and (min-device-width: 990px) and (min-width: 1188px){
-	.sdc-content-wrap { width: 1158px; }
-}
-@media only screen and (min-width: 1386px)
-{
-	.sdc-content-wrap { width: 1356px; }
-}
 
